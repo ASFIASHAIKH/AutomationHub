@@ -1,0 +1,370 @@
+                                              GIT TASK:-{01_05}
+===================================================================================================================
+1. Establish a local repository for your project with a descriptive name. Set up Git configurations by adding 
+   a username and email address. Display and modify the Git configurations, and verify if the changes are reflected
+   in the .git/config file post-editing. Showcase the utilization of both Git Local and Global configurations.
+===================================================================================================================
+ANS}
+-----------
+LOCAL:-
+-----------
+root@DESKTOP-8OOG2HF:~# git init
+Initialized empty Git repository in /root/.git/
+
+root@DESKTOP-8OOG2HF:~# cd  /root/.git/
+
+root@DESKTOP-8OOG2HF:.git# ls -a
+.  ..  HEAD  branches  config  description  hooks  info  objects  refs
+
+root@DESKTOP-8OOG2HF:.git# git config user.name Asfiya
+root@DESKTOP-8OOG2HF:.git# git config user.email shaikhasfiya12345@gmail.com
+
+root@DESKTOP-8OOG2HF:.git# git config -l
+user.name=Asfia
+user.email=shaikhasfiya1345@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+user.name=Asfiya
+user.email=shaikhasfiya12345@gmail.com
+
+root@DESKTOP-8OOG2HF:.git# ls -la
+total 40
+drwxr-xr-x 7 root root 4096 Jan  3 13:59 .
+drwx------ 8 root root 4096 Jan  3 14:01 ..
+-rw-r--r-- 1 root root   23 Jan  3 13:57 HEAD
+drwxr-xr-x 2 root root 4096 Jan  3 13:57 branches
+-rw-r--r-- 1 root root  151 Jan  3 13:59 config
+-rw-r--r-- 1 root root   73 Jan  3 13:57 description
+drwxr-xr-x 2 root root 4096 Jan  3 13:57 hooks
+drwxr-xr-x 2 root root 4096 Jan  3 13:57 info
+drwxr-xr-x 4 root root 4096 Jan  3 13:57 objects
+drwxr-xr-x 4 root root 4096 Jan  3 13:57 refs
+
+root@DESKTOP-8OOG2HF:.git# cat config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[user]
+        name = Asfiya
+        email = shaikhasfiya12345@gmail.com
+
+------------
+GLOBAL:-
+------------
+root@DESKTOP-8OOG2HF:.git# git config --global user.name Asfim
+root@DESKTOP-8OOG2HF:.git# git config --global user.email asfimsk@gmail.com
+root@DESKTOP-8OOG2HF:.git# git config --global --list
+user.name=Asfim
+user.email=asfimsk@gmail.com
+
+===================================================================================================================
+2. Set up a local repository for your project with a meaningful name. Explore the default branch in the local Git
+   repository. Sequentially create five files, committing each with informative messages. Share the Git log output 
+   through multiple methods once the process is complete.
+===================================================================================================================
+ANS}
+root@DESKTOP-8OOG2HF:.git# git init BugFix
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /root/.git/BugFix/.git/
+
+root@DESKTOP-8OOG2HF:.git# cd /root/.git/BugFix
+root@DESKTOP-8OOG2HF:BugFix# ll
+total 12
+drwxr-xr-x 3 root root 4096 Jan  3 14:21 ./
+drwxr-xr-x 8 root root 4096 Jan  3 14:21 ../
+drwxr-xr-x 7 root root 4096 Jan  3 14:21 .git/
+root@DESKTOP-8OOG2HF:BugFix# git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+root@DESKTOP-8OOG2HF:BugFix# vim file01.txt
+root@DESKTOP-8OOG2HF:BugFix# vim file02.txt
+root@DESKTOP-8OOG2HF:BugFix# vim file03.txt
+root@DESKTOP-8OOG2HF:BugFix# vim file04.txt
+root@DESKTOP-8OOG2HF:BugFix# vim file05.txt
+
+root@DESKTOP-8OOG2HF:BugFix# git add .
+root@DESKTOP-8OOG2HF:BugFix# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file01.txt
+        new file:   file02.txt
+        new file:   file03.txt
+        new file:   file04.txt
+        new file:   file05.txt
+
+root@DESKTOP-8OOG2HF:BugFix# git commit -m "Add configuration files"
+[master (root-commit) d88eac7] Add configuration files”
+ 5 files changed, 5 insertions(+)
+ create mode 100644 file01.txt
+ create mode 100644 file02.txt
+ create mode 100644 file03.txt
+ create mode 100644 file04.txt
+ create mode 100644 file05.txt
+ 
+root@DESKTOP-8OOG2HF:BugFix# git status
+On branch master
+nothing to commit, working tree clean
+
+root@DESKTOP-8OOG2HF:BugFix# git log
+commit d88eac7e9583ad06f8a768a5eec0775757b30a13 (HEAD -> master)
+Author: Asfim <asfimsk@gmail.com>
+Date:   Wed Jan 3 14:34:01 2024 +0530
+
+    Add configuration files”
+
+root@DESKTOP-8OOG2HF:BugFix# git log > git_log.txt
+
+root@DESKTOP-8OOG2HF:BugFix# cat git_log.txt
+commit d88eac7e9583ad06f8a768a5eec0775757b30a13
+Author: Asfim <asfimsk@gmail.com>
+Date:   Wed Jan 3 14:34:01 2024 +0530
+
+    Add configuration files”
+
+===================================================================================================================
+3. Open a GitHub account and initiate a remote Git repository. Examine the default branch in the remote repository. Create and commit the following files one by one with meaningful commit messages: 
+	i. README.md 
+	ii. send_disk_alert.sh
+	iii. create_users.sh
+	iv. check_service.sh.
+===================================================================================================================
+ANS}
+
+===================================================================================================================
+4. Establish a local repository for your project with a descriptive name. Illustrate the implementation of a 
+   Git-Ignore file by committing multiple files to the local repository.
+===================================================================================================================
+root@DESKTOP-8OOG2HF:.git# git init Blog
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /root/.git/Blog/.git/
+
+root@DESKTOP-8OOG2HF:.git# cd  /root/.git/Blog
+root@DESKTOP-8OOG2HF:Blog# ls -la
+total 12
+drwxr-xr-x 3 root root 4096 Jan  3 14:49 .
+drwxr-xr-x 9 root root 4096 Jan  3 14:49 ..
+drwxr-xr-x 7 root root 4096 Jan  3 14:49 .git
+
+root@DESKTOP-8OOG2HF:Blog# touch data01 data02 data03
+root@DESKTOP-8OOG2HF:Blog# ll
+total 12
+drwxr-xr-x 3 root root 4096 Jan  3 14:50 ./
+drwxr-xr-x 9 root root 4096 Jan  3 14:49 ../
+drwxr-xr-x 7 root root 4096 Jan  3 14:49 .git/
+-rw-r--r-- 1 root root    0 Jan  3 14:50 data01
+-rw-r--r-- 1 root root    0 Jan  3 14:50 data02
+-rw-r--r-- 1 root root    0 Jan  3 14:50 data03
+
+root@DESKTOP-8OOG2HF:Blog# git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        data01
+        data02
+        data03
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+root@DESKTOP-8OOG2HF:Blog# vim .gitignore
+root@DESKTOP-8OOG2HF:Blog# cat .gitignore
+data02
+root@DESKTOP-8OOG2HF:Blog# git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        data01
+        data03
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@DESKTOP-8OOG2HF:Blog# git add .
+root@DESKTOP-8OOG2HF:Blog# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .gitignore
+        new file:   data01
+        new file:   data03
+
+root@DESKTOP-8OOG2HF:Blog# git commit -m "Initial commit for Blog project"
+[master (root-commit) f77bd40] Initial commit for Blog project
+ 3 files changed, 1 insertion(+)
+ create mode 100644 .gitignore
+ create mode 100644 data01
+ create mode 100644 data03
+root@DESKTOP-8OOG2HF:Blog# git status
+On branch master
+nothing to commit, working tree clean 
+
+===================================================================================================================
+5. Create a local repository with a meaningful project name. Demonstrate the utilization of GIT working area, 
+   staging area, and commit area. Experiment with committing, deleting, and restoring files from the repository. 
+   Additionally, add files to the staging area and restore them from the staging area.
+===================================================================================================================
+ANS}
+--------------
+FIRST_STEP
+--------------
+root@DESKTOP-8OOG2HF:.git# git init Collaborate
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /root/.git/Collaborate/.git/
+
+root@DESKTOP-8OOG2HF:.git# cd /root/.git/Collaborate
+root@DESKTOP-8OOG2HF:Collaborate# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  3 14:59 ./
+drwxr-xr-x 10 root root 4096 Jan  3 14:59 ../
+drwxr-xr-x  7 root root 4096 Jan  3 14:59 .git/
+
+root@DESKTOP-8OOG2HF:Collaborate# touch photo_01 photo_02 photo_03 
+root@DESKTOP-8OOG2HF:Collaborate# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  3 15:00 ./
+drwxr-xr-x 10 root root 4096 Jan  3 14:59 ../
+drwxr-xr-x  7 root root 4096 Jan  3 14:59 .git/
+-rw-r--r--  1 root root    0 Jan  3 15:00 photo_01
+-rw-r--r--  1 root root    0 Jan  3 15:00 photo_02
+-rw-r--r--  1 root root    0 Jan  3 15:00 photo_03
+
+root@DESKTOP-8OOG2HF:Collaborate# git add .
+root@DESKTOP-8OOG2HF:Collaborate# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   photo_01
+        new file:   photo_02
+        new file:   photo_03
+
+root@DESKTOP-8OOG2HF:Collaborate# git commit -m "Collaborate: Implement user authentication feature"
+[master (root-commit) a1b7a03] Collaborate: Implement user authentication feature
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 photo_01
+ create mode 100644 photo_02
+ create mode 100644 photo_03
+
+root@DESKTOP-8OOG2HF:Collaborate# git status
+On branch master
+nothing to commit, working tree clean
+
+root@DESKTOP-8OOG2HF:Collaborate# rm -f photo_03
+root@DESKTOP-8OOG2HF:Collaborate# git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    photo_03
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+root@DESKTOP-8OOG2HF:Collaborate# git restore photo_03
+root@DESKTOP-8OOG2HF:Collaborate# git status
+On branch master
+nothing to commit, working tree clean
+root@DESKTOP-8OOG2HF:Collaborate# ll
+total 12
+drwxr-xr-x  3 root root 4096 Jan  3 15:07 ./
+drwxr-xr-x 10 root root 4096 Jan  3 14:59 ../
+drwxr-xr-x  8 root root 4096 Jan  3 15:07 .git/
+-rw-r--r--  1 root root    0 Jan  3 15:00 photo_01
+-rw-r--r--  1 root root    0 Jan  3 15:00 photo_02
+-rw-r--r--  1 root root    0 Jan  3 15:07 photo_03
+
+---------------
+SECOND_STEP
+---------------
+root@DESKTOP-8OOG2HF:Collaborate# vim media_01
+root@DESKTOP-8OOG2HF:Collaborate# cat media_01
+HELLO TEAM
+root@DESKTOP-8OOG2HF:Collaborate# vim media_02
+root@DESKTOP-8OOG2HF:Collaborate# cat media_02
+UBUNTU
+Centos
+root@DESKTOP-8OOG2HF:Collaborate# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        media_01
+        media_02
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+root@DESKTOP-8OOG2HF:Collaborate# git add .
+
+root@DESKTOP-8OOG2HF:Collaborate# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   media_01
+        new file:   media_02
+
+root@DESKTOP-8OOG2HF:Collaborate# rm -f media_01
+root@DESKTOP-8OOG2HF:Collaborate# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   media_01
+        new file:   media_02
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    media_01
+
+root@DESKTOP-8OOG2HF:Collaborate#  git restore --staged media_01
+
+root@DESKTOP-8OOG2HF:Collaborate# git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   media_02
+===================================================================================================================
